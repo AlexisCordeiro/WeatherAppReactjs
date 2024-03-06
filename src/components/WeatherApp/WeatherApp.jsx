@@ -20,7 +20,7 @@ const WeatherApp = () => {
         if (element[0].value === ''){
             return 0;
         }
-        let url = `https://api.openweathermap.org/data/2.5/weather?q=${element[0].value}&appid=${api_key}`;
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${element[0].value}&units=metric&appid=${api_key}`;
         
         let response = await fetch(url);
 
@@ -33,7 +33,7 @@ const WeatherApp = () => {
         
         humidity[0].innerHTML = data.main.humidity + " %";
         wind[0].innerHTML = Math.floor(data.wind.speed) + " km/h";
-        temprature[0].innerHTML = Math.floor(data.main.temp) + "°c";
+        temprature[0].innerHTML = Math.floor(data.main.temp)+ "°C";
         location[0].innerHTML = data.name;
 
         if(data.weather[0].icon==="01d" || data.weather[0].icon ==='01n'){
